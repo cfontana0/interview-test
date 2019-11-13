@@ -11,15 +11,24 @@ import moment from 'moment-mini'
 import { useState } from 'react'
 
 const Home = () => {
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState()
   const [bags, setBags] = useState(1)
   const [dropOff, setDropOff] = useState(moment().startOf('hour').add(1, 'hours'))
   const [pickUp, setPickUp] = useState(moment().startOf('hour').add(2, 'hours'))
 
   const updateResults = async (searchVal) => {
-    const resGeo = await getCoordsFromLocation(searchVal)
+    setResults()
 
-    const coords = resGeo.results[0].geometry.location
+    const { error_message: error, results } = await getCoordsFromLocation(searchVal)
+
+    if (error || !results[0]) {
+      alert(error || 'There was an error connecting to the Google API')
+
+      return
+    }
+
+    const coords = results[0].geometry.location
+
     const resStash = await getStashpoints({
       ...coords,
       bags,
@@ -64,8 +73,11 @@ const Home = () => {
       </header>
 
       <div>
+        { results && results.length === 0 && (
+          <span>No Results</span>
+        )}
         <ul>
-          {results.map(r => <Stashpoint key={r.id} data={r} onBook={() => onBook(r.id) } />)}
+          {results && results.map(r => <Stashpoint key={r.id} data={r} onBook={() => onBook(r.id) } />)}
         </ul>
       </div>
     </div>
