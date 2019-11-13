@@ -12,10 +12,15 @@ const Login = () => {
   const [infoMessage, setInfoMessage] = useState('')
 
   const onLogin = async (data) => {
-    const user = await loginUser(data)
+    const response = await loginUser(data)
 
-    if (user.token) {
-      cookie.set('st_token', user.token)
+    if (response.error_id && response.message) {
+      alert(response.message)
+      return
+    }
+
+    if (response.token) {
+      cookie.set('st_token', response.token)
 
       setInfoMessage('Success')
 
