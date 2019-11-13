@@ -1,0 +1,19 @@
+.bookingItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 2px 2px var(--four);
+    border: 1px solid var(--two);
+    padding: 12px;
+
+    &:first-of-type {
+        background-color: var(--fourteen);
+    }
+
+    div {
+        text-align: center;
+        flex: 1;
+    }
+}
+  
