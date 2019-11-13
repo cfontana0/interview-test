@@ -11,7 +11,7 @@ export const BagSelector = ({ className, label, value, options, onSelect }) => {
       <br />
 
       <select className={selector} name={label}>
-        {options.map((i) => <option key={i} value={i} onClick={() => onSelect(i + 1)}>{i + 1}</option>)}
+        {options && options.map((i) => <option key={i} value={i} onClick={() => onSelect(i + 1)}>{i + 1}</option>)}
       </select>
     </div>
   )

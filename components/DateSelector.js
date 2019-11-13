@@ -40,7 +40,7 @@ export const DateSelector = ({ className, label, value: datetime, onChange }) =>
       <div>
         <input type="date" value={date} onChange={({ target: { value } }) => updateDatetime({ date: value })} />
         <select className={timeSelector} name={label}>
-          {hours.map((h) => (
+          {hours && hours.map((h) => (
             <option
               key={h}
               selected={h === time}
