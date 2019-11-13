@@ -1,11 +1,8 @@
 import classnames from 'classnames'
-import moment from 'moment-mini'
-
-import { label as labelStyle } from '../style/style.css'
-
 import { filterButton } from './SearchBar.css'
+import { label as labelStyle } from '../style/style.css'
+import moment from 'moment-mini'
 import { timeSelector } from './DateSelector.css'
-
 
 const hours = Array.apply(null, Array(24)).map((x, i) => `${i.toString().padStart(2, '0')}:00`)
 

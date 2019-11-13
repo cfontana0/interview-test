@@ -1,6 +1,5 @@
 import { stashpoint } from './Stashpoint.css'
 
-
 export const Stashpoint = ({
   data: { name, location_name: locationName, address, rating },
   onBook

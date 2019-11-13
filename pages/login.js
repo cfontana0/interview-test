@@ -1,15 +1,12 @@
-import Router from 'next/router'
-import cookie from 'js-cookie'
-import { useState } from 'react'
+import '../style/global.css'
 
+import { info, page, title } from '../style/style.css'
 
 import { LoginForm } from '../components/LoginForm'
-
+import Router from 'next/router'
+import cookie from 'js-cookie'
 import { loginUser } from '../utils/api'
-
-import '../style/global.css'
-import { title, page, info } from '../style/style.css'
-
+import { useState } from 'react'
 
 const Login = () => {
   const [infoMessage, setInfoMessage] = useState('')

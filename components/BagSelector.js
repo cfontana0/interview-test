@@ -1,10 +1,7 @@
 import classnames from 'classnames'
-
-import { label as labelStyle } from '../style/style.css'
-
 import { filterButton } from './SearchBar.css'
+import { label as labelStyle } from '../style/style.css'
 import { selector } from './BagSelector.css'
-
 
 export const BagSelector = ({ className, label, value, options, onSelect }) => {
   return (

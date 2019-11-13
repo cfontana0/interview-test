@@ -1,11 +1,9 @@
-import { useState } from 'react'
+import { hr, item } from '../style/style.css'
 
 import { BagSelector } from './BagSelector'
 import { DateSelector } from './DateSelector'
-
-import { item, hr } from '../style/style.css'
 import { filtersWrapper } from './SearchBar.css'
-
+import { useState } from 'react'
 
 const bagOptions = Array.apply(null, Array(20)).map((x, i) => i)
 
