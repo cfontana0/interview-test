@@ -126,6 +126,16 @@ export const makeBooking = async ({ bags, dropOff, pickUp, stashpointId }, token
   return res.json()
 }
 
+export const getBooking = async (token) => {
+  const res = await fetch(`${API_URL}/bookings`, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  })
+
+  return res.json()
+}
+
 
 export const finalizePay = async (data, token) => {
   const res = await fetch(`${API_URL}/payments/finalize`, generateFetchOptions(data, token))
